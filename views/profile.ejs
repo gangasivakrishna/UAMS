@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>User Access Management System</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body {
+            padding-top: 80px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="page-header text-center">
+            <h1><span class=""></span> Profile Page</h1>
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        </div>
+        <div>
+            <%if (users && users.length > 0) { %>
+            <% users.forEach(function(user) { %>
+            <%if (user.local) { %>
+            <div class="col-sm-7">
+                <div class="well">
+                    <h3><span class="fa fa-user"></span> Local</h3>
+                    <strong>Email</strong>: <%= user.local.email %><br>
+                    <strong>Role</strong>: <%= user.local.role %><br>
+                    <strong>Domain</strong>: localhost<br>
+
+                </div>
+            </div>
+
+            <% } %>
+            <%if (user.google ) { %>
+            <div class="col-sm-7">
+                <div class="well">
+                    <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
+                    <strong>ID</strong>: <%= user.google.id %><br>
+                    <strong>Email</strong>: <%= user.google.email %><br>
+                    <strong>Role</strong>: <%= user.google.role %><br>
+                    <strong>Name</strong>: <%= user.google.name %><br>
+                    <strong>Domain</strong>: Google<br>
+
+                </div>
+            </div>
+
+
+            <% } %>
+            <%if (user.facebook) { %>
+
+            <div class="col-sm-7">
+                <div class="well">
+                    <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+                    <strong>ID</strong>: <%= user.facebook.id %><br>
+                    <strong>Email</strong>: <%= user.facebook.email %><br>
+                    <strong>Role</strong>: <%= user.facebook.role %><br>
+                    <strong>Domain</strong>: <%= user.facebook.name %><br>
+                    <strong>Domain</strong>:Facebook<br>
+                </div>
+            </div>
+
+            <% }
+                %>
+            <% }); %>
+            <% } %>
+
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>
